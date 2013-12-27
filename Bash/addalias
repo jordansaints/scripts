@@ -1,0 +1,55 @@
+#!/bin/bash
+
+##############
+## addalias ##
+##############
+##
+## A useful command that makes it quick and easy to add new aliased commands
+## to your ~/.bash_alias file.
+##
+## Written by Jordan Saints, www.jordansaints.com
+##
+
+##
+## USAGE ##
+##
+##   Method #1:
+##     To be prompted for alias values, simple type "addalias".
+##     Prompts for the name first, then prompts for the command being aliased.
+##
+##   Method #2:
+##     Pass in the complete alias string (in quotes!) as the 1st program argument.
+##     NOTE: The alias argument must be one single string, i.e., it MUST be
+##     wrapped in quotes!
+##     EXAMPLE:
+##       addalias "ls='ls --color=always'"
+##
+
+## addalias
+# Add an alias in two ways: through program input, or stdin
+function addalias(){
+if [ "$1" != "" ]; then
+    NEWALIAS="$1"
+    echo "alias $NEWALIAS" >> ~/.bash_alias
+    . ~/.bash_alias
+    echo "Added $1 to ~/.bash_alias"
+  else
+    echo "Enter the alias name:"
+    read NAME
+    while [ "$NAME" == "" ]; do
+      echo "Enter the alias name:"
+      read NAME
+    done
+    echo "Enter the command you wish to alias:"
+    read COMMAND
+    while [ "$COMMAND" == "" ]; do
+      echo "Enter the command you wish to alias:"
+      read COMMAND
+    done
+    NEWALIAS="alias $NAME='$COMMAND'"
+    echo $NEWALIAS >> ~/.bash_alias
+    . ~/.bash_alias
+    echo "Added $NEWALIAS to ~/.bash_alias"
+  fi
+}
+
