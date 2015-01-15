@@ -2,15 +2,22 @@
 
 ## BASH SHELL COMMANDS
 # .bash_profile
-alias profile-open='open ~/.bash_profile' #open in default editor
-alias profile-edit='nano ~/.bash_profile' #edit in nano
-alias profile-reset='. ~/.bash_profile' #reset bash_alias script
-alias profile-cat='cat ~/.bash_profile' #cat file
+alias profile-open='open ~/.bash_profile' # open in default editor
+alias profile-edit='nano ~/.bash_profile' # edit in nano
+alias profile-reset='. ~/.bash_profile'   # reset profile
+alias profile-cat='cat ~/.bash_profile'   # print bash_profile file
+alias s='source ~/.bash_profile'          # source profile (same as reset)
+alias pedit='profile-edit'
+alias preset='profile-reset'
+
 # .bash_alias
-alias alias-open='open ~/.bash_alias' #open in default editor
-alias alias-edit='nano ~/.bash_alias' #edit in nano
-alias alias-reset='. ~/.bash_alias' #reset bash_alias script
-alias alias-cat='cat ~/.bash_alias' #cat file
+alias alias-open='open ~/.bash_alias' # open in default editor
+alias alias-edit='nano ~/.bash_alias' # edit in nano
+alias alias-reset='. ~/.bash_alias'   # reset aliases
+alias alias-cat='cat ~/.bash_alias'   # print bash_alias file
+alias sa='source ~/.bash_alias'       # source aliases (same as reset)
+alias aedit='alias-edit'
+alias areset='alias-reset'
 
 ## NETWORKING COMMANDS
 alias external-ip='curl ifconfig.me'
@@ -62,6 +69,8 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias ln='ln -i'
 
+alias count='wc -l'
+
 alias mount='mount |column -t'
 
 alias vi='vim'
@@ -86,8 +95,15 @@ alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 ## Get server cpu info ##
 alias cpuinfo='lscpu'
 
-## older system use /proc/cpuinfo ##
-##alias cpuinfo='less /proc/cpuinfo' ##
-
 ## get GPU ram on desktop / laptop##
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
+
+## git shortcuts ##
+alias gitconfig-edit='nano ~/.gitconfig'
+alias gitalias-edit='nano ~/.gitconfig'
+alias gitalias='cat ~/.gitconfig'
+
+## npm shortcuts ##
+alias npmcc='npm cache clear'
+alias npmls='npm list -g'
+alias lg='list -g'
