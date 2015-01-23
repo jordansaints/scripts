@@ -44,6 +44,7 @@ alias headerc='curl -I --compress'
 ## DIRECTORY ACCESS
 alias home='cd ~/ && pwd'
 alias downloads='cd ~/Downloads && pwd'
+alias down='downloads'
 alias etc='cd /etc && pwd'
 
 ## UNIX COMMANDS
