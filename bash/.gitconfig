@@ -1,0 +1,41 @@
+[diff]
+	algorithm = patience
+	## ONE OF: default (myers), minimal, patience, or histogram (basically patience+)
+
+[color]
+	status = auto
+	branch = auto
+	interactive = auto
+	diff = auto
+
+[alias]
+	st = status
+	s = status
+	up = pull --rebase
+	h = checkout master
+	co = checkout
+	ci = commit
+	cim = commit -m
+	br = branch
+	b = branch
+	nb = checkout -b
+	rem = rebase master
+	rename = branch -m
+
+	dbr = branch -D
+
+	d = diff -r master
+	ch = diff -r master --name-status
+
+	unstage = reset HEAD --
+
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+
+	m = merge
+	msq = merge --squash
+	mff = merge --ff-only
+	##merge = merge --strategy-option=patience
+
+	rc = review create
+	ru = review update
+	rd = review dcommit -s -r

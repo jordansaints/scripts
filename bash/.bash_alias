@@ -1,4 +1,4 @@
-#### USEFUL ALIASES ####
+#### HELPFUL ALIASES ####
 
 ## BASH SHELL COMMANDS
 # .bash_profile
@@ -19,6 +19,18 @@ alias sa='source ~/.bash_alias'       # source aliases (same as reset)
 alias aedit='alias-edit'
 alias areset='alias-reset'
 
+## DEVELOPMENT COMMANDS
+# git
+alias gitconfig-edit='nano ~/.gitconfig'
+alias gitalias-edit='nano ~/.gitconfig'
+alias gitalias='cat ~/.gitconfig'
+alias github-login='ssh git@github.com'
+# npm
+alias npmcc='npm cache clean'
+alias npmls='npm list -g'
+# bower
+alias bowercc='bower cache clean'
+
 ## NETWORKING COMMANDS
 alias external-ip='curl ifconfig.me'
 alias remote-host='curl ifconfig.me/host'
@@ -35,10 +47,6 @@ alias downloads='cd ~/Downloads && pwd'
 alias etc='cd /etc && pwd'
 
 ## UNIX COMMANDS
-alias ka='killall'
-alias kaf='killall Finder'
-alias edit='nano'
-alias findn='find . -name'
 # ls
 alias ls='ls -G'
 alias lsa='ls -la'
@@ -61,20 +69,25 @@ alias .5='cd ../../../../../'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-# calculator
-alias bc='bc -l'
-# diff
-alias diff='colordiff'
+# other
 alias mv='mv -i'
 alias cp='cp -i'
 alias ln='ln -i'
+alias bc='bc -l'
 
+alias c='clear'
+
+alias ka='killall'
+alias kaf='killall Finder'
+alias findn='find . -name'
 alias count='wc -l'
 
-alias mount='mount |column -t'
-
+alias diff='colordiff'
+alias edit='nano'
 alias vi='vim'
 alias top='atop'
+
+alias mount='mount |column -t'
 
 alias path='echo $PATH'
 alias now='date +"%T'
@@ -97,13 +110,3 @@ alias cpuinfo='lscpu'
 
 ## get GPU ram on desktop / laptop##
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
-
-## git shortcuts ##
-alias gitconfig-edit='nano ~/.gitconfig'
-alias gitalias-edit='nano ~/.gitconfig'
-alias gitalias='cat ~/.gitconfig'
-
-## npm shortcuts ##
-alias npmcc='npm cache clear'
-alias npmls='npm list -g'
-alias lg='list -g'

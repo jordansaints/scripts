@@ -1,0 +1,28 @@
+#### HELPFUL OSX DEVELOPMENT ALIASES ####
+
+# Note: written for OSX 10.9, some aliases may not work on other versions of OSX #
+
+## APACHE SERVER
+# server commands
+alias start-apache='sudo apachectl start'
+alias stop-apache='sudo apachectl stop'
+alias restart-apache='sudo apachectl restart'
+alias apache-version='httpd -v'
+# directory shortcuts
+alias apacheconf='cd /etc/apache2 && pwd'
+alias apache-conf='apacheconf'
+alias webroot='cd /Library/WebServer/Documents && pwd'
+alias documentroot='webroot'
+alias docroot='webroot'
+alias webserver='webroot'
+
+## PHP
+alias phpconf-edit='sudo nano /etc/php.ini'
+
+## MYSQL SERVER (MySQL must be installed!)
+alias start-mysql='sudo /usr/local/mysql/support-files/mysql.server start'
+alias stop-mysql='sudo /usr/local/mysql/support-files/mysql.server stop'
+
+## FTP SERVER
+alias start-ftp='sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist'
+alias stop-ftp='sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist'
