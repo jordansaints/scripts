@@ -2,11 +2,22 @@
 
 # Note: written for OSX 10.9, some aliases may not work on other versions of OSX #
 
+alias osxalias-reset='source ~/.bash_alias_osx_dev'
+alias osxareset='osxalias-reset'
+alias osxalias-edit='nano ~/.bash_alias_osx_dev'
+alias osxaedit='osxalias-edit'
+alias osxalias-cat='cat ~/.bash_alias_osx_dev'
+alias osxacat='osxalias-cat'
+
 ## APACHE SERVER
+# status commands
+alias isapacheup='sudo launchctl list | grep apache'
 # server commands
-alias start-apache='sudo apachectl start'
-alias stop-apache='sudo apachectl stop'
-alias restart-apache='sudo apachectl restart'
+alias start-apache='sudo apachectl start && isapacheup'
+alias stop-apache='sudo apachectl graceful-stop'
+alias stop-apache-hard='sudo apachectl stop'
+alias restart-apache='isapacheup && sudo apachectl graceful && isapacheup'
+alias restart-apache-hard='isapacheup && sudo apachectl restart && isapacheup'
 alias apache-version='httpd -v'
 # directory shortcuts
 alias apacheconf='cd /etc/apache2 && pwd'
