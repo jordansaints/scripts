@@ -37,3 +37,38 @@ alias stop-mysql='sudo /usr/local/mysql/support-files/mysql.server stop'
 ## FTP SERVER
 alias start-ftp='sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist'
 alias stop-ftp='sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist'
+
+## HOMEBREW
+alias b='brew'
+alias brewcask='brew cask'
+alias brewc='brew cask'
+alias bcask='brew cask'
+alias brew-installed='brew info --json=v1 --installed'
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+## MEASURE FILE TRANSFER SPEEDS (useful for checking LAN speeds)
+## Usage example: `cpstat target-file.zip /Volumes/NetworkDrive/destination-dir`
+alias cpstat='rsync -a --progress --stats --human-readable '
+alias cp-stat='cpstat'
+
+## NETWORKING COMMANDS
+alias dns='scutil --dns'
+alias flushdns-6='dscacheutil -flushcache' 	  			  		 # OSX 10.5-10.6
+alias flushdns-8='sudo killall -HUP mDNSResponder'			   	 	 # OSX 10.7-10.8
+alias flushdns-9='dscacheutil -flushcache;sudo killall -HUP mDNSResponder'		 # OSX 10.9
+alias flushdns-10='sudo discoveryutil mdnsflushcache;sudo discoveryutil udnsflushcaches' # OSX 10.10
+
+# Set the main flush command in your local profile according to your version of OS X
+#alias flushdns='flushdns-9'
+
+alias connections-all='sudo lsof -i | grep -E "(LISTEN|ESTABLISHED)"'
+alias connections-user='lsof -i | grep -E "(LISTEN|ESTABLISHED)"'
+alias connections='connections-all'
+alias conn='connections'
+
+alias ports-10='sudo lsof -iTCP -sTCP:LISTEN -n -P'	# OSX 10.10
+alias ports-9='sudo lsof -nP -iTCP:$PORT -sTCP:LISTEN'	# OSX 10.9
+alias ports-8='sudo lsof -iTCP:$PORT -sTCP:LISTEN'	# OSX 10.8
+alias ports='ports-10'
+
+alias ports-TCP='sudo lsof -i -n -P | grep TCP'		# OSX 10.9-10.10

@@ -1,6 +1,7 @@
 #### HELPFUL ALIASES ####
 
-## BASH SHELL COMMANDS
+## BASH SHELL COMMANDS ##
+
 # .bash_profile
 alias profile-open='open ~/.bash_profile' # open in default editor
 alias profile-edit='nano ~/.bash_profile' # edit in nano
@@ -9,6 +10,7 @@ alias profile-cat='cat ~/.bash_profile'   # print bash_profile file
 alias s='source ~/.bash_profile'          # source profile (same as reset)
 alias pedit='profile-edit'
 alias preset='profile-reset'
+alias pcat='profile-cat'
 
 # .bash_alias
 alias alias-open='open ~/.bash_alias' # open in default editor
@@ -18,36 +20,28 @@ alias alias-cat='cat ~/.bash_alias'   # print bash_alias file
 alias sa='source ~/.bash_alias'       # source aliases (same as reset)
 alias aedit='alias-edit'
 alias areset='alias-reset'
+alias acat='alias-cat'
 
-## DEVELOPMENT COMMANDS
-# git
-alias gitconfig-edit='nano ~/.gitconfig'
-alias gitalias-edit='nano ~/.gitconfig'
-alias gitalias='cat ~/.gitconfig'
-alias github-login='ssh git@github.com'
-# npm
-alias npmcc='npm cache clean'
-alias npmls='npm list -g'
-# bower
-alias bowercc='bower cache clean'
+## NETWORKING COMMANDS ##
 
-## NETWORKING COMMANDS
-alias external-ip='curl ifconfig.me'
+alias external-ip='curl https://icanhazip.com'
 alias remote-host='curl ifconfig.me/host'
 alias all-external-info='curl ifconfig.me/all && echo "From http://ifconfig.me/"'
 alias hn='hostname'
-alias flush-dns='dscacheutil -flushcache'
+alias dns='scutil --dns'
 alias ports='netstat -tulanp'
 alias header='curl -I'
 alias headerc='curl -I --compress'
 
-## DIRECTORY ACCESS
+## DIRECTORY ACCESS ##
+
 alias home='cd ~/ && pwd'
 alias downloads='cd ~/Downloads && pwd'
 alias down='downloads'
 alias etc='cd /etc && pwd'
 
-## UNIX COMMANDS
+## UNIX COMMANDS ##
+
 # ls
 alias ls='ls -G'
 alias lsa='ls -la'
@@ -75,18 +69,17 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias ln='ln -i'
 alias bc='bc -l'
-
 alias c='clear'
 
 alias ka='killall'
 alias kaf='killall Finder'
-alias findn='find . -name'
+alias findn='find . -iname'
 alias count='wc -l'
 
 alias diff='colordiff'
 alias edit='nano'
 alias vi='vim'
-alias top='atop'
+#alias top='atop'
 
 alias mount='mount |column -t'
 
@@ -95,19 +88,43 @@ alias now='date +"%T'
 alias nowtime='now'
 alias nowdate='date +"%d-%m-%Y"'
 
-## pass options to free ##
+# pass options to free
 alias meminfo='free -m -l -t'
-
-## get top process eating memory
+# get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-
-## get top process eating cpu ##
+# get top process eating cpu
 alias pscpu='ps auxf | sort -nr -k 3'
 alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
-
-## Get server cpu info ##
+# get server cpu info
 alias cpuinfo='lscpu'
-
-## get GPU ram on desktop / laptop##
+# get GPU ram on desktop / laptop
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
+
+## DEVELOPMENT COMMANDS ##
+
+# git
+alias gs='git status'
+alias gb='git branch'
+# gitconfig (list)
+alias gitconfig='cat ~/.gitconfig'
+alias gitalias='cat ~/.gitconfig'
+alias gitc='gitconfig'
+alias gita='gitalias'
+# gitconfig (edit)
+alias gitconfig-edit='nano ~/.gitconfig'
+alias gitalias-edit='nano ~/.gitconfig'
+alias gitcedit='gitconfig-edit'
+alias gitaedit='gitalias-edit'
+alias gitce='gitcedit'
+alias gitae='gitaedit'
+
+# github
+alias github-login='ssh git@github.com'
+
+# npm
+alias npmcc='npm cache clean'
+alias npmls='npm list -g'
+
+# bower
+alias bowercc='bower cache clean'
